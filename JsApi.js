@@ -10,13 +10,6 @@ fetch('https://dummyjson.com/products?limit=10')
 .catch(error => console.error(error));
 
 
-
-// const f = props.entries();
-
-// for (let x of f) {
-//     document.getElementById("demo").innerHTML += x + "<br>";
-//   }
-
 function LogData()
 {
     console.log(props);
@@ -38,16 +31,44 @@ if(Array.isArray(arr))
 //            console.log("Hello World");
 //    });
 
-document.getElementById("demo").innerHTML = props[0].title;
+//let myTable = document.getElementById("MyTable").getElementsByTagName("tr")[0];
+//let myTableRow = document.getElementById("MyRow");
 
-// for (let y in arr)
-// {
-//     document.getElementById("demo").innerHTML +=( y +" :"+ arr[0].title[y])
-// }
+// var myTable = document.getElementById('myTable');
+// var myTableRow = document.createElement('TR');
+//  myTable.tBodies[0].appendChild(myTableRow);
+
+
+const table = document.getElementById("demoA");
+
+
+
+
+
     for(let x= 0;x<arr.length;x++)
     {
-        document.getElementById("demo").innerHTML +=  arr[x].title+ "<br>";
+         let row = table.insertRow();
+         let cell = row.insertCell();
+         cell.innerHTML = arr[x].title;
+         cell = row.insertCell();
+         cell.innerHTML = arr[x].description;
+         cell = row.insertCell();
+         cell.innerHTML = arr[x].price;
+         cell = row.insertCell();
+         cell.innerHTML = arr[x].rating;
+         cell = row.insertCell();
+         cell.innerHTML = arr[x].category;
+         cell = row.insertCell();
+         cell.innerHTML = "<img src="+arr[x].images[0]+" />";
+
+        //  let row = table.insertRow();
+        //  let cell = row.insertCell();
+        //  cell.innerHTML = arr[x].title;
+
+       // document.getElementById("demo").innerHTML += (arr[x].title+ "|" + arr[x].description);
+        
     }
+
     console.log("Its an Array");
    
 
